@@ -1,0 +1,23 @@
+package pak;
+import java.util.Scanner;
+
+public class sam {
+
+	    public static void main(String args[]){
+	    	boolean status=true;
+	        Scanner sc=new Scanner(System.in);
+	        System.out.println("Enter the year:");
+	        int year=sc.nextInt();
+	       if(year%4==0) {
+	    	  
+	    		   status=true;}
+	    	   else { status=false;}
+	    		       if(status) {
+	    	   System.out.println("its leap year");
+	       }else {
+	    	   System.out.println("its not leap year");
+	       }
+	    }
+	}
+
+
