@@ -1,0 +1,21 @@
+import java.util.Scanner;
+class logic{
+    public static void main(String args[]){
+        int temp=0;
+        int[] arr={1,2,3,4,38,5,6,7};
+        for(int i=0;i<=arr.length-1;i++){
+            for(int j=i+1;j<=arr.length-1;j++){
+            if(arr[j]>arr[i]){
+                temp=arr[j];
+                arr[j]=arr[i];
+                arr[i]=temp;
+             
+            }
+        
+            }
+             System.out.println(arr[i]);
+        }
+        
+        
+    }
+}
