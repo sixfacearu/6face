@@ -1,0 +1,49 @@
+Collection Framework In Java
+1]Synchronization and Non-Synchronization
+       synchronization
+                single thread perform multiple opertation one by one its called synchronization (vector list)
+       non-synchronization
+                 multiple thread perform multiple operation at a time its called non synchronization (array list) example :one thread perofm add operation another one perform remove operation at the same time
+                  
+       synchronization is safe compare to non-synchronization
+       non-synchronization provide better performance compare synchronization
+       synchronization consumes more time compare to non synchronization
+       but synchronization is thread-safe .
+======================================================================================
+2-ArrayList and Linked List in collection
+
+                 arraylist and linkedlist is a same but its have few differece
+                     i)searching-searching is arraylist better compare to linked list
+                                  becoze its index based search .get(index) =>.get(1)
+                                 Linked list is a traversed based searching all element 				searched one by one  .get(n)
+
+		     ii)deletion:deletion is linked list better compare to array list
+				 linked list deletion o(1).arraylist =>o(n).
+
+		     iii)adding:adding linked list better then araylist
+=======================================================================================
+3]HASH-MAP AND HASH TABLE
+                        i)hashmap-non-synchronized (good performance but not-thread safe)
+                             hashmap-does't maintain(order)
+			ii)hashtable-synchronized  (bad performance but thread safe)
+                             hashtable maintain order
+========================================================================================
+4]HASH-SET AND TREE SET
+                        I]hash set provide good performance and faster compare       to                        treeset
+			II]hase set is does't maintain order(asending)
+			
+                        III]treeset provide order(A to Z)
+=======================================================================================
+5]arraylist-hashmap
+                    arraylist create using list interface
+                    hashmap create using map interface
+                    arraylist consume low memory space compare to hashmap
+                    arraylist allow duplicate hashmap doesnot allow duplicate
+                    getmethod in arraylist using index hashmap using key
+========================================================================================
+6]List vs Map vs Set
+                 LISt=>i)list allows duplicate element eny number of duplicate element
+                       without affecting another type .Implement list interface
+          	 ORDER=>ii)list display insertion order
+                 SET=>set does't allows duplicate element its implemented using setInterface
+                Map=>stroe the element using(key and value).does not allow duplicate using map interface to implement map
