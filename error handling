@@ -1,0 +1,30 @@
+ERROR HANDLING IN JAVA
+                
+           1-it is a important topics in java
+           2-error occur in program its through error message in console at the time we 
+             use in error handling to provide error message user frendly
+           3-two types of error I)checked error II)unchecked error
+
+           4-compile time exception is called checked exception
+           5-run time exception is called unchecked exception
+
+TRY BLOCK:
+       you think your code provide some error means you write your program inside a try block
+If an exception occurs in try block then the control of execution is passed to the corresponding catch block.
+
+CATCH BLOCK:
+        catch block handle the try block code error
+        one try block contain multiple catch block
+        corresponding catch block handle corresponding try block error
+
+FINALY BLOCK
+         whatever your code execute or not finally block excecute defalut..
+
+Throw block
+       when you defind predifined error (ArithmeticException ,IndexBounded) we use catch block but we want user defined error like if u divide using 5 throw error message called
+throw block.
+        
+throw and throws
+    throw used to throw the exception
+    throws used to declare the exception
+
