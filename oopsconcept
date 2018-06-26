@@ -1,0 +1,219 @@
+CONSTRUCTOR
+      1-constructor not a method
+      2-class name and constructor name should be same
+      3-when we create object at the time constructor invoked
+      4-constructor don't have a return type
+      ex:
+         class example{
+               example(){
+                }
+             public static void main(String args[]){
+                 example obj=new example();//invoked constructor }
+    
+    5-The purpose of constructor is to initialize the object of a class while the purpose of a method is to perform a task by executing java code.
+    6-Constructors cannot be abstract, final, static and synchronised while methods can be.
+    7-Constructors do not have return types while methods do.
+
+constructor overloading:
+Constructor overloading is a concept of having more than one constructor with different parameters list, in such a way so that each constructor performs a different task.
+class JavaExample{  
+   String web; 
+   JavaExample(String w){  
+	web = w;
+   }  
+
+   /* This is the Copy Constructor, it 
+    * copies the values of one object
+    * to the another object (the object
+    * that invokes this constructor)
+    */
+   JavaExample(JavaExample je){  
+	web = je.web; 
+   }  
+   void disp(){
+	System.out.println("Website: "+web);
+   }  
+
+   public static void main(String args[]){  
+	JavaExample obj1 = new JavaExample("BeginnersBook");  
+		
+	/* Passing the object as an argument to the constructor
+	 * This will invoke the copy constructor
+	 */
+	JavaExample obj2 = new JavaExample(obj1);  
+	obj1.disp();  
+	obj2.disp();  
+   }  
+}
+output
+Website: BeginnersBook
+Website: BeginnersBook
+
+STATIC KEYWORD:
+Static keyword can be used with class, variable, method and block. Static members belong to the class instead of a specific instance, this means if you make a member static, you can access it without object. Let’s take an example to understand this:
+
+Here we have a static method myMethod(), we can call this method without any object because when we make a member static it becomes class level. If we remove the static keyword and make it non-static then we must need to create an object of the class in order to call it.
+Ex:
+class SimpleStaticExample
+{
+    // This is a static method
+    static void myMethod()
+    {
+        System.out.println("myMethod");
+    }
+ 
+    public static void main(String[] args)
+    {
+          /* You can see that we are calling this
+           * method without creating any object. 
+           */
+           myMethod();
+    }
+}
+A class can be made static only if it is a nested class.
+
+    Nested static class doesn’t need reference of Outer class
+    A static class cannot access non-static members of the Outer class
+
+We will see these two points with the help of an example:
+class JavaExample{
+   private static String str = "BeginnersBook";
+
+   //Static class
+   static class MyNestedClass{
+	//non-static method
+	public void disp() {
+
+	   /* If you make the str variable of outer class
+	    * non-static then you will get compilation error
+	    * because: a nested static class cannot access non-
+	    * static members of the outer class.
+	    */
+	   System.out.println(str); 
+	}
+
+   }
+   public static void main(String args[])
+   {
+       /* To create instance of nested class we didn't need the outer
+	* class instance but for a regular nested class you would need 
+	* to create an instance of outer class first
+        */
+	JavaExample.MyNestedClass obj = new JavaExample.MyNestedClass();
+	obj.disp();
+   }
+}
+output
+BeginnersBook
+
+Inheritence:
+The process by which one class acquires the properties(data members) and functionalities(methods) of another class is called inheritance. The aim of inheritance is to provide the reusability of code so that a class has to write only the unique features and rest of the common properties and functionalities can be extended from the another class.
+Child Class:
+The class that extends the features of another class is known as child class, sub class or derived class.
+Parent Class:
+The class whose properties and functionalities are used(inherited) by another class is known as parent class, super class or Base class.
+Inheritance is a process of defining a new class based on an existing class by extending its common data members and methods.
+Inheritance allows us to reuse of code, it improves reusability in your java application.
+Note: The biggest advantage of Inheritance is that the code that is already present in base class need not be rewritten in the child class.
+Syntax: Inheritance in Java
+class Teacher {
+   String designation = "Teacher";
+   String collegeName = "Beginnersbook";
+   void does(){
+	System.out.println("Teaching");
+   }
+}
+
+public class PhysicsTeacher extends Teacher{
+   String mainSubject = "Physics";
+   public static void main(String args[]){
+	PhysicsTeacher obj = new PhysicsTeacher();
+	System.out.println(obj.collegeName);
+	System.out.println(obj.designation);
+	System.out.println(obj.mainSubject);
+	obj.does();
+   }
+}
+Inheritance and Method Overriding
+When we declare the same method in child class which is already present in the parent class the this is called method overriding. In this case when we call the method from child class object, the child class version of the method is called. However we can call the parent class method using super keyword as I have shown in the example below:
+class ParentClass{
+   //Parent class constructor
+   ParentClass(){
+	System.out.println("Constructor of Parent");
+   }
+   void disp(){
+	System.out.println("Parent Method");
+   }
+}
+class JavaExample extends ParentClass{
+   JavaExample(){
+	System.out.println("Constructor of Child");
+   }
+   void disp(){
+	System.out.println("Child Method");
+        //Calling the disp() method of parent class
+	super.disp();
+   }
+   public static void main(String args[]){
+	//Creating the object of child class
+	JavaExample obj = new JavaExample();
+	obj.disp();
+   }
+}
+Output:
+Constructor of Parent
+Constructor of Child
+Child Method
+Parent Method
+
+
+Aggregation Example in Java
+For example consider two classes Student class and Address class. Every student has an address so the relationship between student and address is a Has-A relationship. But if you consider its vice versa then it would not make any sense as an Address doesn’t need to have a Student necessarily. Lets write this example in a java program.
+Student Has-A Address
+class Address
+{
+   int streetNum;
+   String city;
+   String state;
+   String country;
+   Address(int street, String c, String st, String coun)
+   {
+       this.streetNum=street;
+       this.city =c;
+       this.state = st;
+       this.country = coun;
+   }
+}
+class StudentClass
+{
+   int rollNum;
+   String studentName;
+   //Creating HAS-A relationship with Address class
+   Address studentAddr; 
+   StudentClass(int roll, String name, Address addr){
+       this.rollNum=roll;
+       this.studentName=name;
+       this.studentAddr = addr;
+   }
+   public static void main(String args[]){
+       Address ad = new Address(55, "Agra", "UP", "India");
+       StudentClass obj = new StudentClass(123, "Chaitanya", ad);
+       System.out.println(obj.rollNum);
+       System.out.println(obj.studentName);
+       System.out.println(obj.studentAddr.streetNum);
+       System.out.println(obj.studentAddr.city);
+       System.out.println(obj.studentAddr.state);
+       System.out.println(obj.studentAddr.country);
+   }
+}
+
+Output:
+
+123
+Chaitanya
+55
+Agra
+UP
+India
+
+The above example shows the Aggregation between Student and Address classes. You can see that in Student class I have declared a property of type Address to obtain student address. Its a typical example of Aggregation in Java.
